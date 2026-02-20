@@ -31,7 +31,13 @@ Anyway, the golden rule is: If unsure, __DO NOT__ run this !!!
 [TBD]
 
 
+# LICENSE
 
+Creative Commons, CC BY
+
+https://creativecommons.org/licenses/by/4.0/deed.en
+
+Please add a link to this github project.
 
 
 
