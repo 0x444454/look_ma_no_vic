@@ -20,7 +20,7 @@ Hopefully we'll see better demos than this in the future ;-)
 My C64 Ultimate is still working after two days of experiments.  
 Use this __at your own risk__.  
 Note that [at the moment] __you will have to reinstall the C64U firmware__ after uploading a third-party bitstream like this.   
-Also [at the moment] there is no official way to upload third-parties FPGA bitstreams, so I use Vivado 2025.2.  
+Also [at the moment] there is no official way to upload third-party FPGA bitstreams, so I use Vivado 2025.2.  
 
 __IMPORTANT NOTE:__ Power-cycling the C64U after uploading this bitstream will lead to a __seemingly__ bricked machine.  
 How to recover:  
