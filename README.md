@@ -6,6 +6,8 @@ Hopefully we'll see better demos than this in the future ;-)
 
 ![screenshots](media/look_ma_no_vic-small.jpg)
 
+[![Demo video](media/thumbnail.jpg)](media/look_ma_no_vic.mpg)
+
 # REQUIREMENTS
 
 - A Commodore 64 Ultimate.
