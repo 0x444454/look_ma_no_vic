@@ -9,7 +9,7 @@ Hopefully we'll see better demos than this in the future ;-)
 # REQUIREMENTS
 
 - A Commodore 64 Ultimate.
-- Some way to upload the FPGA bitstream (I use Vivado via JTAG).
+- Some way to upload the FPGA bitstream (I use Vivado 2025.2 via JTAG).
 
 # IS THIS SAFE ?
 
