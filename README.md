@@ -13,18 +13,18 @@ Hopefully we'll see better demos than this in the future ;-)
 
 # IS THIS SAFE ?
 
-Ahem... Relatively :-)  
 My C64 Ultimate is still working after two days of experiments.  
-Use this at your own risk.  
-Note that you will have to reinstall the C64U firmware after uploading a third-party bitstream.  
+Use this __at your own risk__.  
+Note that [at the moment] __you will have to reinstall the C64U firmware__ after uploading a third-party bitstream like this.   
+Also [at the moment] there is no official way to upload third-parties FPGA bitstreams, so I use Vivado 2025.2.  
 
-At the moment, there is no official way to upload third-parties FPGA bitstreams, so I use Vivado 2025.2.  
-
-__IMPORTANT NOTE:__ Power-cycling the C64U after uploading this bitstream will lead to a seemingly bricked machine.  
+__IMPORTANT NOTE:__ Power-cycling the C64U after uploading this bitstream will lead to a __seemingly__ bricked machine.  
 How to recover:  
 - Upload the ![C64U firmware](https://github.com/GideonZ/1541ultimate/blob/master/recovery/u64ii/u64_mk2_artix.bit) via JTAG. This will give you a working C64U environment.
 - Run the C64U updater.
 - Your machine should be "as new again".
+
+If unsure, __DO NOT__ run this.
 
 # HOW TO UPLOAD VIA JTAG
 
