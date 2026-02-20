@@ -13,7 +13,7 @@ Hopefully we'll see better demos than this in the future ;-)
 
 # IS THIS SAFE ?
 
-Relatively :-)  
+Ahem... Relatively :-)  
 My C64 Ultimate is still working after two days of experiments.  
 Use this at your own risk.  
 Note that you will have to reinstall the C64U firmware after uploading a third-party bitstream.  
