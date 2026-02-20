@@ -8,7 +8,7 @@ Hopefully we'll see better demos than this in the future ;-)
 
 ## Demo video:  
 
-[![Demo video](media/look_ma_no_vic-thumbnail.jpg)](media/look_ma_no_vic.mp4)
+[![Demo video](media/look_ma_no_vic-thumbnail.jpg)](media/look_ma_no_vic.mpg)
 
 # REQUIREMENTS
 
