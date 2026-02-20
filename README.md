@@ -20,11 +20,11 @@ Also [at the moment] there is no official way to upload third-parties FPGA bitst
 
 __IMPORTANT NOTE:__ Power-cycling the C64U after uploading this bitstream will lead to a __seemingly__ bricked machine.  
 How to recover:  
-- Upload the ![C64U firmware](https://github.com/GideonZ/1541ultimate/blob/master/recovery/u64ii/u64_mk2_artix.bit) via JTAG. This will give you a working C64U environment.
+- Upload the [C64U firmware](https://github.com/GideonZ/1541ultimate/blob/master/recovery/u64ii/u64_mk2_artix.bit) via JTAG. This will give you a working C64U environment until power-off.
 - Run the C64U updater.
-- Your machine should be "as new again".
+- Your machine should be restored, and now survive power off.
 
-If unsure, __DO NOT__ run this.
+Anyway, the golden rule is: If unsure, __DO NOT__ run this !!!
 
 # HOW TO UPLOAD VIA JTAG
 
