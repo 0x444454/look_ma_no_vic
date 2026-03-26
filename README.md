@@ -1,4 +1,4 @@
-# look ma no vic
+# Look Ma No VIC !
 ## Build your own C64 Ultimate FPGA demo
 
 This is an experimental FPGA demo for the C64 Ultimate.  
