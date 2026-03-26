@@ -26,7 +26,7 @@ Note that [at the moment] there is no official way to upload third-party FPGA bi
 __IMPORTANT NOTE:__ Upload your bitstream directly to the FPGA, so Power-cycling the C64U (with JTAG disconnected !) should be enough to restore normal operation.  
 Do __not__ upload to flash or other persistent storage.  
 
-See also [How to recover](#HOW-TO-RECOVER-IN-CASE-OF-PROBLEMS) in case of problems.
+See also [HOW TO RECOVER](#HOW-TO-RECOVER-IN-CASE-OF-PROBLEMS) in case of problems.
 
 Anyway, the golden rule is: If unsure, __DO NOT__ run this !!!
 
