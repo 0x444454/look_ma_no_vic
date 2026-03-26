@@ -23,13 +23,10 @@ Use this __at your own risk__.
 
 Note that [at the moment] there is no official way to upload third-party FPGA bitstreams, so I use Vivado 2025.2.  
 
-__IMPORTANT NOTE:__ Upload your bitstream directly to the FPGA, so Power-cycling the C64U (with JTAG disconnected) should be enough to restore normal operation.  
+__IMPORTANT NOTE:__ Upload your bitstream directly to the FPGA, so Power-cycling the C64U (with JTAG disconnected !) should be enough to restore normal operation.  
 Do __not__ upload to flash or other persistent storage.  
 
-How to recover the C64U in case you have issues:  
-- Upload the [C64U firmware](https://github.com/GideonZ/1541ultimate/blob/master/recovery/u64ii/u64_mk2_artix.bit) via JTAG. This will give you a working C64U environment until power-off.
-- Run the C64U updater.
-- Your machine should be restored, and now survive power off.
+See also [How to recover](#HOW-TO-RECOVER-IN-CASE-OF-PROBLEMS) in case of problems.
 
 Anyway, the golden rule is: If unsure, __DO NOT__ run this !!!
 
@@ -54,14 +51,26 @@ Anyway, the golden rule is: If unsure, __DO NOT__ run this !!!
 
 ![screenshots](media/Vivado-screenshot.png)
 
+
 # HOW TO RESTORE C64U NORMAL OPERATION
 
 FPGA has volatile memory, so your code won't survive a reboot.
 
 - Power the C64U off (you may have to keep the power button pressed down for a few seconds).
-- __Disconnect the JTAG interface__ (or just its USB cable, so the FT232H is powered off). If JTAG interface is still enabled, then the C64U will not reprogram the FPGA when powered on, and may seem "bricked".
+- __Disconnect the JTAG interface__ (or just its USB cable, so the FT232H is powered off). If JTAG interface is still enabled, then the C64U will not reprogram the FPGA when powered on, it will not even turn on any LED, and may appear "bricked". Do not panic, been there, done that. ;-)
 - Power the C64U on again.
 - Your C64U should now work as usual.
+
+# HOW TO RECOVER IN CASE OF PROBLEMS
+
+If your C64U appears "bricked", it is probably because it is still in JTAG debug mode (JTAG interface connected and active).  
+The C64U will not properly reprogram the FPGA at power-on if the JTAG interface is still active.  Disconnect JTAG cable, or power of the FT232 board (i.e. disconnect its USB cable).  
+This hould be enough to resume normal operation.  
+
+In any case, here is how to recover the C64U in case you have issues:  
+- Upload the [C64U firmware](https://github.com/GideonZ/1541ultimate/blob/master/recovery/u64ii/u64_mk2_artix.bit) via JTAG. This will give you a working C64U environment.
+- Run the C64U updater to restore/update the firmware.
+- Your machine should be restored, and now survive power off. Make sure JTAG interface is disconnected or powered off.  
 
 # LICENSE
 
