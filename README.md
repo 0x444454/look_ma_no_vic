@@ -1,5 +1,5 @@
 # look ma no vic
-## A C64 Ultimate FPGA demo (and how to build your own)
+## Build your own C64 Ultimate FPGA demo
 
 This is an experimental FPGA demo for the C64 Ultimate.  
 Hopefully we'll see better demos than this in the future ;-)
