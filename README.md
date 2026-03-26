@@ -18,7 +18,7 @@ Hopefully we'll see better demos than this in the future ;-)
 # IS THIS SAFE ?
 
 My C64 Ultimate is still working after two days of experiments.  
-However, low level hardware access may cause the machine or peripherals to work in untestee or unsupported conditions.  
+However, low level hardware access may cause the machine or peripherals to work in untested or unsupported conditions, especially during "trial and error" experiments.
 Use this __at your own risk__.  
 
 Note that [at the moment] there is no official way to upload third-party FPGA bitstreams, so I use Vivado 2025.2.  
