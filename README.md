@@ -36,7 +36,9 @@ Anyway, the golden rule is: If unsure, __DO NOT__ run this !!!
 
 - Get a FT232H breakout board (a USB-C model costs about $15).
 - You may need to flash the FT232H board to make Vivado recognize it. Download [FT_Prog](https://ftdichip.com/utilities/) utility from the FTDI web site. Set manufacturer string as "Xilinx" and flash the board (see example screenshot).
+ 
   ![screenshots](media/FT_Prog-screenshot.png)
+
 - If the FT232H board has a "I2C" switch, set it to OFF.
 - Check schematics for wiring.
 
