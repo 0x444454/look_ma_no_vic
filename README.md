@@ -34,8 +34,21 @@ Anyway, the golden rule is: If unsure, __DO NOT__ run this !!!
 
 # HOW TO UPLOAD VIA JTAG
 
-[TBD]
+- Get a FT232H breakout board (a USB-C model costs about $15).
+- You may need to flash the FT232H board to make Vivado recognize it. Download [FT_Prog](https://ftdichip.com/utilities/) utility from the FTDI web site. Set manufacturer string as "Xilinx" and flash the board (see example screenshot).
+  ![screenshots](media/FT_Prog-screenshot.png)
+- If the FT232H board has a "I2C" switch, set it to OFF.
+- Check schematics for wiring.
 
+![screenshots](media/C64U-JTAG_schematics-small.jpg)
+
+- Install [Vivado](https://www.xilinx.com/support/download/index.html/content/xilinx/en/downloadNav/vivado-design-tools.html) 2025.2 or more recent version. It's free and no paid license is needed for this FPGA model.
+- Run Vivado and set up a new project. Select "xc7a50tfgg484-1" as FPGA part number.
+- In Vivado, go to "Program and Debug" -> "Open Hardware Manager" -> "Open Target" -> "Auto Connect". If you only see a "localhost" entry in the Hardware Manager window, then your FT232H board has not been recognized. Use FT_Prog to flash your board as described above. If your board is recognized, you will see a "xilinx_[...]" entry under "localhost".
+- If your C64 Ultimate is powered on, you should see also a "xc7a50t_0" entry in Vivado Hardwar Manager. If you don't, try "Open Target" again.
+- Vivado should now show the Program and Debug" -> "Open Hardware Manager" ->"Program Device" option. Use this to upload your bitstream.
+
+![screenshots](media/Vivado-screenshot.png)
 
 # LICENSE
 
