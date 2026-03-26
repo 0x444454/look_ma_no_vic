@@ -23,7 +23,7 @@ Use this __at your own risk__.
 
 Note that [at the moment] there is no official way to upload third-party FPGA bitstreams, so I use Vivado 2025.2.  
 
-__IMPORTANT NOTE:__ Upload your bitstream directly to the FPGA, so Power-cycling the C64U (with JTAG disconnected !) should be enough to restore normal operation.  
+__IMPORTANT NOTE:__ Upload your bitstream directly to the FPGA, so Power-cycling the C64U (with JTAG disconnected !) should be enough to resume normal operation.  
 Do __not__ upload to flash or other persistent storage.  
 
 See also [HOW TO RECOVER](#HOW-TO-RECOVER-IN-CASE-OF-PROBLEMS) in case of problems.
@@ -52,7 +52,7 @@ Anyway, the golden rule is: If unsure, __DO NOT__ run this !!!
 ![screenshots](media/Vivado-screenshot.png)
 
 
-# HOW TO RESTORE C64U NORMAL OPERATION
+# HOW TO RESUME C64U NORMAL OPERATION
 
 FPGA has volatile memory, so your code won't survive a reboot.
 
