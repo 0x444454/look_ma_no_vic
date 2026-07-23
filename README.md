@@ -17,18 +17,17 @@ Hopefully we'll see better demos than this in the future ;-)
 
 # IS THIS SAFE ?
 
-My C64 Ultimate is still working after two days of experiments.  
-However, low level hardware access may cause the machine or peripherals to work in untested or unsupported conditions, especially during "trial and error" experiments.  
-Use this __at your own risk__.  
+Yes, however low level hardware access may cause the machine or peripherals to work in untested or unsupported conditions, especially during "trial and error" experiments.  
+Use this code and experiment __at your own risk__.  
 
-Note that [at the moment] there is no official way to upload third-party FPGA bitstreams, so I use Vivado 2025.2.  
+Note that [at the moment] there is no official way to upload third-party FPGA bitstreams from the C64U interface, so I use Vivado 2025.2.  
 
-__IMPORTANT NOTE:__ Upload your bitstream directly to the FPGA, so Power-cycling the C64U (with JTAG disconnected !) should be enough to resume normal operation.  
+__IMPORTANT NOTE:__ Upload your bitstream directly to the FPGA, so Power-cycling the C64U (with JTAG disconnected !) will be enough to resume normal operation.  
 Do __not__ upload to flash or other persistent storage.  
 
 See also [HOW TO RECOVER](#HOW-TO-RECOVER-IN-CASE-OF-PROBLEMS) in case of problems.
 
-Anyway, the golden rule is: If unsure, __DO NOT__ run this !!!
+Anyway, the golden rule is: If you are not sure what you are doing, __DO NOT__ do it !!! :-)
 
 # HOW TO UPLOAD VIA JTAG
 
