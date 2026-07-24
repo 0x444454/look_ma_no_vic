@@ -64,7 +64,7 @@ FPGA has volatile memory, so this demo won't survive a reboot.
 
 If your C64U appears "bricked", it is probably because it is still in JTAG debug mode (JTAG interface connected and active).  
 The C64U will not properly reprogram the FPGA at power-on if the JTAG interface is still active.  Disconnect JTAG cable, or power off the FT232 board (i.e. disconnect its USB cable).  
-This hould be enough to resume normal operation.  
+This should be enough to resume normal operation after power-cycling your C64U.  
 
 In any case, here is how to recover the C64U in case you have issues:  
 - Upload the [C64U firmware](https://github.com/GideonZ/1541ultimate/blob/master/recovery/u64ii/u64_mk2_artix.bit) via JTAG. This will give you a working C64U environment.
