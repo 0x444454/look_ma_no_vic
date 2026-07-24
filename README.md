@@ -13,6 +13,7 @@ It can be used as a starting point for proper demos in the future ;-)
 # REQUIREMENTS
 
 - A Commodore 64 Ultimate.
+- A/V output cable (Composite). NOTE: HDMI output support is work in progress.
 - Some way to upload the FPGA bitstream (I use Vivado 2025.2 via JTAG).
 
 # IS THIS SAFE ?
