@@ -53,7 +53,7 @@ Anyway, the golden rule is: If you are not sure what you are doing, __DO NOT__ d
 
 # HOW TO RESUME C64U NORMAL OPERATION
 
-FPGA has volatile memory, so your code won't survive a reboot.
+FPGA has volatile memory, so this demo won't survive a reboot.
 
 - Power the C64U off (you may have to keep the power button pressed down for a few seconds).
 - __Disconnect the JTAG interface__ (or just its USB cable, so the FT232H is powered off). If JTAG interface is still enabled, then the C64U will not reprogram the FPGA when powered on, it will not even turn on any LED, and may appear "bricked". Do not panic, take a deep breath, DISCONNECT THE JTAG interface, and power-cycle the machine. ;-)
