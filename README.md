@@ -2,7 +2,7 @@
 ## How to build your own C64 Ultimate FPGA demo
 
 This is an experimental FPGA demo for the C64 Ultimate.  
-Hopefully we'll see better demos than this in the future ;-)
+It can be used as a starting point for proper demos in the future ;-)
 
 ![screenshots](media/look_ma_no_vic-small.jpg)
 
