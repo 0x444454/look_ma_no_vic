@@ -9,7 +9,7 @@ It can be used as a starting point for proper demos in the future ;-)
 ## Demo video:  
 
 NOTE: The output is grayscale because the three A/V port outputs (Luma, Chroma, Composite) are raw DAC outputs.  
-I am currently using the same value (Luma) on all of them. Future version will encode Chroma and Composite separately.  
+I am currently using the same value (Luma) on all of them. Future version will properly encode Chroma and Composite for color output.  
 
 [![Demo video](media/look_ma_no_vic-thumbnail.jpg)](media/look_ma_no_vic.mov)
 
