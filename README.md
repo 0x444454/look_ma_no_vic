@@ -6,11 +6,11 @@ It can be used as a starting point for proper demos in the future ;-)
 
 ![screenshots](media/look_ma_no_vic-small.jpg)
 
-## Demo video:  
+## Now in true colors:  
 
 This new version adds colors !
 
-[![Demo video](media/look_ma_no_vic-thumbnail.jpg)](media/look_ma_no_vic.mov)
+[![Demo video](media/look_ma_no_vic-thumbnail-color.jpg)](media/look_ma_no_vic.mov)
 
 # REQUIREMENTS
 
