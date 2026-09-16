@@ -6,7 +6,7 @@ It can be used as a starting point for proper demos in the future ;-)
 
 ![screenshots](media/look_ma_no_vic-small.jpg)
 
-## Now in true colors:  
+## Now in true colors  
 
 This new version adds colors !
 
