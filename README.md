@@ -8,7 +8,7 @@ It can be used as a starting point for proper demos in the future ;-)
 
 ## Now in true colors  
 
-This new version adds colors !
+Your C64 never had so many colors !
 
 [![Demo video](media/look_ma_no_vic-thumbnail-color.jpg)](media/look_ma_no_vic.mov)
 
