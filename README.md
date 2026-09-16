@@ -16,7 +16,7 @@ I am currently using the same value (Luma) on all of them. Future version will p
 # REQUIREMENTS
 
 - A Commodore 64 Ultimate.
-- A/V output cable (Composite). NOTE: HDMI output support is work in progress.
+- A/V output cable (Composite or S-Video). NOTE: HDMI output support is work in progress.
 - Some way to upload the FPGA bitstream (I use Vivado 2025.2 via JTAG).
 
 # IS THIS SAFE ?
