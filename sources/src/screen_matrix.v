@@ -1,6 +1,6 @@
 // screen_matrix.v
-// 45x25 character screen matrix (C64 screen codes).
-// This covers our 360x200 lo-res pixels screen.
+// 44x25 character screen matrix (C64 screen codes).
+// Each character is 16x8 output pixels, covering the 704x200 active image.
 //
 // Default contents:
 //   - Filled with SPACE (screen code 32)
@@ -13,14 +13,14 @@
 //   - Space is code 32.
 
 module screen_matrix (
-  input  wire [5:0] cx,   // 0..44
+  input  wire [5:0] cx,   // 0..43
   input  wire [4:0] cy,   // 0..24
   output wire [7:0] code
 );
 
-  localparam integer W = 45;
+  localparam integer W = 44;
   localparam integer H = 25;
-  localparam integer N = W*H; // 1125
+  localparam integer N = W*H; // 1100
 
   reg [7:0] mem [0:N-1];
 
@@ -34,7 +34,7 @@ module screen_matrix (
     end
 
     // Row 1 message
-    idx = (1*W) + 7;
+    idx = (1*W) + 6;
     mem[idx +  0] = 8'd42;
     mem[idx +  1] = 8'd42;
     mem[idx +  2] = 8'd42;
@@ -110,11 +110,10 @@ module screen_matrix (
 
   end
 
-  // idx = cy*45 + cx = (cy<<5) + (cy<<3) + (cy<<2) + cy + cx
+  // idx = cy*44 + cx = (cy<<5) + (cy<<3) + (cy<<2) + cx
   wire [10:0] idx_rd = ( {6'd0, cy} << 5 ) +
                        ( {6'd0, cy} << 3 ) +
                        ( {6'd0, cy} << 2 ) +
-                       ( {6'd0, cy} ) +
                        {5'd0, cx};
 
   assign code = mem[idx_rd];

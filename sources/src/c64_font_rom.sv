@@ -5,9 +5,8 @@ module c64_font_rom(
     // 2KB (256*8) uppercase/graphics charset from C64 chargen ROM (first half of 4KB ROM).
     logic [7:0] mem [0:2047];
 
-    // Make synthesis robust: avoid relying on $readmemh search paths.
     initial begin
-        // For simulation, keep the original hex file as a convenient init.
+        // Keep this hex file in the Vivado project "src" directory.
         $readmemh("c64_chargen_ucg.hex", mem);
     end
 

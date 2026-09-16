@@ -6,6 +6,13 @@
 //
 // Revision history [authors in square brackets]:
 //   2026-02-29: First version. [DDT]
+//   2026-09-15: AVID changed from monochrome RGB to PAL-like S-Video Y/C.
+//               Added:
+//                 AVID_R = Composite
+//                 AVID_G = Luma   (S-Video)
+//                 AVID_B = Chroma (S-Video)
+//               Chroma/DAC clock raised to 54 MHz; 13.5 MHz luma timing preserved.
+//               PAL timing/porches/burst should be "more standard".
 //
 module top (
   input  wire        RMII_REFCLK,
@@ -27,21 +34,19 @@ module top (
   BUFG  u_bufg_rmii  (.I(rmii_i), .O(clk_rmii));
 
   wire clk_pix;
-  wire mmcm_locked;
   clock_gen_rmii_to_13m5 u_clk (
     .clk_in(clk_rmii),
-    .clk_pix(clk_pix),
-    .locked(mmcm_locked)
+    .clk_pix(clk_pix)
   );
 
+  // One 13.5 MHz clock drives video timing, chroma generation and the THS8136 DAC interface.
   assign AVID_CLK = clk_pix;
 
   wire        csync_n;
-  wire        hsync_unused;
-  wire        vsync_unused;
   wire        active;
   wire        in_sync;
-  wire        in_blank_unused;
+  wire        burst_active;
+  wire        line_odd;
   wire [9:0]  x;
   wire [8:0]  y;
   wire        frame_start;
@@ -49,19 +54,17 @@ module top (
   video_timing u_timing (
     .clk(clk_pix),
     .csync_n(csync_n),
-    .hsync(hsync_unused),
-    .vsync(vsync_unused),
     .in_sync(in_sync),
-    .in_blank(in_blank_unused),
     .active(active),
+    .burst_active(burst_active),
+    .line_odd(line_odd),
     .x(x),
     .y(y),
     .frame_start(frame_start)
   );
 
-  wire [7:0] video_r;
-  wire [7:0] video_g;
-  wire [7:0] video_b;
+  wire [7:0] video_luma;
+  wire [7:0] video_chroma;
   wire       image_active;
 
   video_pattern u_pattern (
@@ -69,11 +72,12 @@ module top (
     .frame_start(frame_start),
     .active(active),
     .in_sync(in_sync),
+    .burst_active(burst_active),
+    .line_odd(line_odd),
     .x(x),
     .y(y),
-    .r(video_r),
-    .g(video_g),
-    .b(video_b),
+    .luma(video_luma),
+    .chroma(video_chroma),
     .image_active(image_active)
   );
 
@@ -83,10 +87,38 @@ module top (
   end
 
   assign AVID_SYNCn = sync_q;
-  assign AVID_FB    = image_active;
-  assign AVID_R     = video_r;
-  assign AVID_G     = video_g;
-  assign AVID_B     = video_b;
+
+  // Keep the DAC enabled during active picture and during the chroma-burst window.
+  assign AVID_FB = image_active | burst_active;
+
+  // S-Video + composite mapping using the existing AVID DAC channels:
+  //   G output -> Y (luma + sync)
+  //   B output -> C (PAL-like chroma, centered on 128)
+  //   R output -> composite Y+C, saturated to the 8-bit DAC range
+  //
+  // Chroma is represented as an unsigned 8-bit value centered on 128, so convert it back to a signed excursion before adding it to Luma.
+  wire signed [10:0] composite_sum =
+      $signed({3'b000, video_luma}) +
+      ($signed({3'b000, video_chroma}) - 11'sd128);
+
+  wire [7:0] video_composite =
+      (composite_sum < 11'sd0)   ? 8'h00 :
+      (composite_sum > 11'sd255) ? 8'hFF :
+                                   composite_sum[7:0];
+
+  reg [7:0] avid_r_q = 8'd0;
+  reg [7:0] avid_g_q = 8'd0;
+  reg [7:0] avid_b_q = 8'd128;
+
+  always @(posedge clk_pix) begin
+    avid_r_q <= video_composite;
+    avid_g_q <= video_luma;
+    avid_b_q <= video_chroma;
+  end
+
+  assign AVID_R = avid_r_q;
+  assign AVID_G = avid_g_q;
+  assign AVID_B = avid_b_q;
 
   // Simple board-alive indication from the known-good RMII clock.
   reg [25:0] led_div = 26'd0;

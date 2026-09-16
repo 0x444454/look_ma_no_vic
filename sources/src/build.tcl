@@ -1,6 +1,6 @@
-# rebuild.tcl
+# build.tcl
 # Usage (Vivado Tcl console):
-#   source rebuild.tcl
+#   source src/build.tcl
 #
 # This resets synth/impl/bitstream runs and rebuilds from scratch.
 

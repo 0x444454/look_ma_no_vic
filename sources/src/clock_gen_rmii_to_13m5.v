@@ -1,10 +1,10 @@
 module clock_gen_rmii_to_13m5 (
   input  wire clk_in,
-  output wire clk_pix,
-  output wire locked
+  output wire clk_pix
 );
 
-  wire clkfb;
+  // Generate the single 13.5 MHz clock used by video timing, chroma and the DAC interface.
+  wire clkfb_pix;
   wire clk_pix_mmcm;
 
   MMCME2_BASE #(
@@ -14,18 +14,17 @@ module clock_gen_rmii_to_13m5 (
     .CLKFBOUT_MULT_F(27.000),
     .CLKFBOUT_PHASE(0.000),
 
-    // 50 MHz input -> 675 MHz VCO -> 13.5 MHz pixel clock.
+    // 50 MHz input -> 675 MHz VCO -> 13.5 MHz video clock.
     .CLKOUT0_DIVIDE_F(50.000),
     .CLKOUT0_PHASE(0.000),
     .CLKOUT0_DUTY_CYCLE(0.500),
 
     .STARTUP_WAIT("FALSE")
-  ) u_mmcm (
+  ) u_mmcm_pix (
     .CLKIN1(clk_in),
-    .CLKFBIN(clkfb),
-    .CLKFBOUT(clkfb),
+    .CLKFBIN(clkfb_pix),
+    .CLKFBOUT(clkfb_pix),
     .CLKOUT0(clk_pix_mmcm),
-    .LOCKED(locked),
     .PWRDWN(1'b0),
     .RST(1'b0)
   );
